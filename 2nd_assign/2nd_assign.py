@@ -47,3 +47,39 @@ while True:
         else: 
             print("non existing id")
 '''
+
+'''
+#2nd question 
+
+import random #import random module 
+
+operator = {0:"+", 1:"-", 2:"/", 3:"*"} #dictionary for random operator  
+
+#lookup dict for calculation
+operation = {'+': lambda x, y: x + y,
+            '-': lambda x, y: x - y, 
+            '/': lambda x, y: x / y,
+            '*': lambda x, y: x * y}
+
+count = 0 #variable for correct answers count 
+
+user_settings = input("set integer limit") #get user input for integer limit
+while True: 
+    a = random.randrange(1,int(user_settings)) #get random int
+    b = random.randrange(1,int(user_settings))
+
+    operator_key = random.randrange(0,4) #get random operator 
+
+    user_answer = input("what is {0}{1}{2}".format(a,operator[operator_key],b)) #get user input 
+
+    if int(user_answer) == operation[operator[operator_key]](a,b): #process when correct 
+        print(operation[operator[operator_key]](a,b))
+        print("well done")
+        count = count + 1 #count correct answers 
+        
+    else:  #process when wrong
+        print("close, try again next time")
+        print(operation[operator[operator_key]](a,b))
+        print(count)
+        break 
+'''
